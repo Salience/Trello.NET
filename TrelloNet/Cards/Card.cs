@@ -64,7 +64,7 @@ namespace TrelloNet
         {
             var checkItems = from cl in Checklists ?? Enumerable.Empty<Checklist>()
                              from ci in cl.CheckItems
-                             join cis in CheckItemStates on ci.Id equals cis.IdCheckItem
+                             join cis in CheckItemStates ?? Enumerable.Empty<CheckItemState>() on ci.Id equals cis.IdCheckItem
                              where cis.State == "complete"
                              select ci;
 
