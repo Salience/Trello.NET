@@ -121,7 +121,7 @@ namespace TrelloNet.Internal
 			if (response.StatusCode == HttpStatusCode.Unauthorized)
 				throw new TrelloUnauthorizedException(response.Content);
 			if (response.StatusCode != HttpStatusCode.OK)
-				throw new TrelloException(response.Content);
+				throw new TrelloException(response.StatusCode, response.Content);
 		}
 	}
 }
